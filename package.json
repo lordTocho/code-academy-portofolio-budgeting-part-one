@@ -1,0 +1,28 @@
+{
+  "name": "code-academy-portofolio-budgeting-part-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*_test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lordTocho/code-academy-portofolio-budgeting-part-one.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lordTocho/code-academy-portofolio-budgeting-part-one/issues"
+  },
+  "homepage": "https://github.com/lordTocho/code-academy-portofolio-budgeting-part-one#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.3.0"
+  }
+}
