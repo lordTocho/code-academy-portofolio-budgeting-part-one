@@ -2,7 +2,8 @@ const assert = require('assert');
 let chai = require('chai');
 let server = require('../server');
 let chaiHttp = require('chai-http');
-const { response } = require('express');
+const { expect } = require('chai');
+const collectionOfEnvelopes = require('../model/data');
 
 chai.should();
 chai.use(chaiHttp);
@@ -41,4 +42,27 @@ describe('Test all envelope operations', () => {
                 })
         })
     });
+
+    describe( "Test PUT route for /api/envelope", () => {
+        it('Updates one envelope budgeting object', (done) => {
+            chai.request(server)
+                .put("/api/envelope/Rent?envelope=Rent&balance=1000.12")
+                .end((err, response) => {
+                    response.should.have.status(200);
+                done();
+                })
+
+        })
+    })
+
+    describe( "Test DELETE route for /api/envelope", () => {
+        it( 'Deletes one envelope budgeting object', (done) => {
+            chai.request(server)
+                .delete("/api/envelope/Rent?envelope=Rent")
+                .end((err, response) => {
+                    response.should.have.status(200);
+                done();
+                })
+        } )
+    } )
 })

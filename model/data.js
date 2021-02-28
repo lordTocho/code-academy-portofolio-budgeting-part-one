@@ -1,3 +1,5 @@
+// acts as a database that holds all of the envelope records
+
 let collectionOfEnvelopes = [
     {
         envelope: 'Groceries',
