@@ -6,11 +6,13 @@ module.exports = envelopeRouter;
 // the envelopes going to contain the name of the envelope and the balance
 const collectionOfEnvelopes = require('../model/data');
 
-const { processEnvelopeEntry, retrieveEnvelope, updateEnvelopeEntry, deleteEnvelopeEntry, transferFunds } = require('../service/envelopeService');
+const { processEnvelopeEntry, retrieveEnvelope, updateEnvelopeEntry, deleteEnvelopeEntry, transferFunds, totalEnvelopeBudget } = require('../service/envelopeService');
 
 // retrieve all of the envelopes
 envelopeRouter.get('/', (req, res, next) => {
-    res.send(collectionOfEnvelopes)
+    let totalBudget = totalEnvelopeBudget();
+    res.send({ Budget: collectionOfEnvelopes,
+               Total: totalBudget} )
 })
 
 envelopeRouter.get('/:name', (req, res, next) => {

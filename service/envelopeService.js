@@ -2,6 +2,14 @@ let collectionOfEnvelopes = require('../model/data');
 
 // handles all of the "behind the scenes" CRUD operations for the envelopes
 
+function totalEnvelopeBudget() {
+    let totalBudget = 0;
+
+    collectionOfEnvelopes.forEach( element => totalBudget += element.balance );
+
+    return totalBudget;
+}
+
 function checkForRecordExist( newEnvelope ) {
    let result = collectionOfEnvelopes.find( element => element === newEnvelope )
 
@@ -86,4 +94,4 @@ function transferFunds( envelopeOne, envelopeTwo ) {
     return false;
 }
 
-module.exports = { processEnvelopeEntry, retrieveEnvelope, updateEnvelopeEntry, deleteEnvelopeEntry, transferFunds }
+module.exports = { processEnvelopeEntry, retrieveEnvelope, updateEnvelopeEntry, deleteEnvelopeEntry, transferFunds, totalEnvelopeBudget }
